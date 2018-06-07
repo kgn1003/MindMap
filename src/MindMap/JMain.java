@@ -3,16 +3,19 @@ package MindMap;
 import java.awt.*;
 import javax.swing.*;
 
+
 public class JMain extends JFrame{
 	
 	JSplitPane leftPane;
 	JSplitPane rightPane;
+	Attribute value = new Attribute();
 	
-	RightPane right = new RightPane();
+	RightPane right = new RightPane(value);
+//	DrawPane draw = new DrawPane(right,value);
 	LeftPane left = new LeftPane();
-	CenterPane center = new CenterPane();
-	Menu menu = new Menu();
-	Toolbar toolbar = new Toolbar();
+	CenterPane center = new CenterPane(right,value);
+	Menu menu = new Menu(left,this);
+	Toolbar toolbar = new Toolbar(left,this);
 
 	
 	JMain(){
@@ -20,7 +23,7 @@ public class JMain extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1000, 500);
 		this.setJMenuBar(menu.bar);
-		this.add(toolbar);
+		this.add(toolbar,BorderLayout.NORTH);
 
 		
 		leftPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
@@ -42,9 +45,7 @@ public class JMain extends JFrame{
 		rightPane.setDividerLocation(0.8);
 		rightPane.setDividerSize(0);
 		
-		
 
-//		setBounds(100, 100, 1000, 500);
 	}
 	public static void main(String[] args){
 		new JMain();

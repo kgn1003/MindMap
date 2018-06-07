@@ -9,14 +9,13 @@ public class LeftPane extends JPanel{
 	LeftPane(){
 		setLayout(new BorderLayout());
 		Border border = BorderFactory.createLineBorder(Color.BLUE, 3);
-		
-		TextArea ta = new TextArea();
+		TextAreaPane pane = new TextAreaPane(); 
 		LeftButton btn = new LeftButton();
-		
-		ta.setBorder(border);
-		data.setBackground(Color.cyan);
+		pane.setBorder(border);
+		data.setBackground(Color.CYAN);
+		this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
 
-		add(ta,BorderLayout.NORTH); 
+		add(pane,BorderLayout.NORTH); 
 		add(new JScrollPane(data,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED),BorderLayout.CENTER);
 		add(btn, BorderLayout.SOUTH);
 		setVisible(true);

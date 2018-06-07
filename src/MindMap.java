@@ -689,6 +689,7 @@ public class MindMap extends JFrame implements ActionListener {
 			text.setFont(new Font("a", Font.PLAIN, 20));
 			textName.setForeground(Color.red);
 			textName.setBackground(Color.LIGHT_GRAY);
+			textName.setFont(new Font("¿Ã∏ß",Font.BOLD,15));
 			// textName = new JTextField(10);
 			add(text);
 			add(textName);

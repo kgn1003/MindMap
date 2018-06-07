@@ -4,8 +4,8 @@ import java.awt.*;
 import javax.swing.*;
 
 
-public class TextArea extends JPanel{
-		TextArea(){
+public class TextAreaPane extends JPanel{
+		TextAreaPane(){
 			setLayout(new FlowLayout());
 			JLabel label = new JLabel("Text Editor Pane");
 			label.setFont(new Font("a", Font.PLAIN, 30));
@@ -16,6 +16,6 @@ public class TextArea extends JPanel{
 			setVisible(true);
 		}
 		public static void main(String[] args){
-			new TextArea();
+			new TextAreaPane();
 		}
 }

@@ -1,14 +1,14 @@
 package MindMap;
 import java.awt.*;
 import javax.swing.*;
+//import java.awt.event.MouseAdapter;
+//import java.awt.event.MouseEvent;
+//import java.awt.event.MouseListener;
+
 public class Attribute extends JPanel{
-	JLabel text;
-	JLabel x;
-	JLabel y;
-	JLabel h;
-	JLabel w;
-	JLabel color;
-	JTextField field;
+	
+	
+	JTextField statusText, statusX,statusY,statusH,statusW,statusColor;
 	
 	Attribute(){
 		setLayout(new GridLayout(6,1,0,15));
@@ -17,46 +17,48 @@ public class Attribute extends JPanel{
 		setVisible(true);
 	}
 	void Text(){
-		text = new JLabel("Text");
+		JLabel text = new JLabel("Text");
 		text.setFont(new Font("a", Font.PLAIN, 30));
-		field = new JTextField();
-		field.setBackground(Color.LIGHT_GRAY);
-		add(text);add(field);
+		statusText = new JTextField();
+		statusText.setForeground(Color.red);
+		statusText.setFont(new Font("s",Font.BOLD,20));
+		statusText.setBackground(Color.LIGHT_GRAY);
+		add(text);add(statusText);
 		setVisible(true);
 	}
 	void X(){
-		x = new JLabel("X");
+		JLabel x = new JLabel("X");
 		x.setFont(new Font("a", Font.PLAIN, 30));
-		field = new JTextField(7);
-		add(x);add(field);
+		statusX = new JTextField(7);
+		add(x);add(statusX);
 		setVisible(true);
 	}
 	void Y(){
-		y = new JLabel("Y");
+		JLabel y = new JLabel("Y");
 		y.setFont(new Font("a", Font.PLAIN, 30));
-		field = new JTextField(7);
-		add(y);add(field);
+		statusY = new JTextField(7);
+		add(y);add(statusY);
 		setVisible(true);
 	}
 	void H(){
-		h = new JLabel("H");
+		JLabel h = new JLabel("H");
 		h.setFont(new Font("a", Font.PLAIN, 30));
-		field = new JTextField(7);
-		add(h);add(field);
+		statusH = new JTextField(7);
+		add(h);add(statusH);
 		setVisible(true);
 	}
 	void W(){
-		w = new JLabel("W");
+		JLabel w = new JLabel("W");
 		w.setFont(new Font("a", Font.PLAIN, 30));
-		field = new JTextField(7);
-		add(w);add(field);
+		statusW = new JTextField(7);
+		add(w);add(statusW);
 		setVisible(true);
 	}
 	void Color(){
-		color = new JLabel("Color");
+		JLabel color = new JLabel("Color");
 		color.setFont(new Font("a", Font.PLAIN, 30));
-		field = new JTextField(7);
-		add(color);add(field);
+		statusColor = new JTextField(7);
+		add(color);add(statusColor);
 		setVisible(true);
 	}
 	public static void main(String[] args){
