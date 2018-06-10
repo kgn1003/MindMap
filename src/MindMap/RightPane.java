@@ -11,7 +11,6 @@ public class RightPane extends JPanel{
 		setLayout(new BorderLayout(0,10));
 		Border border = BorderFactory.createLineBorder(Color.BLUE, 3);
 		AttributePane ap =new AttributePane();
-//		Attribute a = new Attribute();
 		RightButton rb = new RightButton();
 		this.setBackground(Color.CYAN);
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));

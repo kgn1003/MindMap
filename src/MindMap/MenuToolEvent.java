@@ -14,11 +14,17 @@ public class MenuToolEvent implements ActionListener {
 	FileDialog mSave;
 	FileDialog mOpen;
 	LeftPane text;
+	
+	
+	Attribute set;
+	
+	
 	JMain mind;
 
 	MenuToolEvent(LeftPane item1, JMain item2) {
 		text = item1;
 		mind = item2;
+//		set = item3;
 		mSave = new FileDialog(mind, "저장", FileDialog.SAVE);
 		mOpen = new FileDialog(mind, "열기", FileDialog.LOAD);
 	}
@@ -147,7 +153,13 @@ public class MenuToolEvent implements ActionListener {
 			// imgLabel.setVisible(true);
 			break;
 		case "변경":
-			// imgLabel.setVisible(true);
+//			set.statusText.setText(set.statusText.getText());
+//			set.statusX.setText(set.statusX.getText());
+//			set.statusX.getText();
+//			set.statusY.setText(set.statusY.getText());
+//			set.statusH.setText(set.statusH.getText());
+//			set.statusW.setText(set.statusW.getText());
+//			set.statusColor.setText(set.statusColor.getText());
 			break;
 		}
 	}

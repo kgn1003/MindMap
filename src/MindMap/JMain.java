@@ -11,9 +11,11 @@ public class JMain extends JFrame{
 	Attribute value = new Attribute();
 	
 	RightPane right = new RightPane(value);
-//	DrawPane draw = new DrawPane(right,value);
+//	DrawPane draw = new DrawPane(right,value,center);
 	LeftPane left = new LeftPane();
 	CenterPane center = new CenterPane(right,value);
+	DrawPane draw = new DrawPane(right,value,center);
+	DrawNode node = new DrawNode(draw);
 	Menu menu = new Menu(left,this);
 	Toolbar toolbar = new Toolbar(left,this);
 

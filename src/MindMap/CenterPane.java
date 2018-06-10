@@ -14,12 +14,14 @@ public class CenterPane extends JPanel{
 		this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
 		
 		MindMapLabel label = new MindMapLabel();
+//		DrawNode drawing = new DrawNode()
 		DrawPane draw = new DrawPane(item1,item2,this);
+		DrawNode drawing = new DrawNode(draw);
 		
 		label.setBorder(border);
 		
 		add(label,BorderLayout.NORTH);
-		add(draw);
+		add(drawing);
 		
 		setVisible(true);
 	}
