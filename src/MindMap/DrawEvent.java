@@ -66,12 +66,22 @@ public class DrawEvent extends MouseAdapter implements MouseListener {
 				break;
 			}
 		}
+		System.out.println("DRAW >> "+draw.label[index].getText());
 		if(enter){
 		value.statusX.setText(Integer.toString(draw.label[index].getX()));
 		value.statusY.setText(Integer.toString(draw.label[index].getY()));
 		value.statusH.setText(Integer.toString(draw.label[index].getHeight()));
 		value.statusW.setText(Integer.toString(draw.label[index].getWidth()));
+		value.statusColor.setText(draw.color[index]);
 		value.statusText.setText(draw.label[index].getText());
+		}
+		else{
+			value.statusX.setText("");
+			value.statusY.setText("");
+			value.statusH.setText("");
+			value.statusW.setText("");
+			value.statusColor.setText("");
+			value.statusText.setText("");
 		}
 
 	}
@@ -102,7 +112,6 @@ public class DrawEvent extends MouseAdapter implements MouseListener {
 			}
 		}
 		System.out.println("Select >>" + select);
-//		String color = draw.label[index].d
 		h = draw.label[index].getHeight();
 		w = draw.label[index].getWidth();
 		int distanceX = e.getX() - x;
@@ -115,7 +124,7 @@ public class DrawEvent extends MouseAdapter implements MouseListener {
 		value.statusY.setText(Integer.toString(draw.label[index].getY()));
 		value.statusH.setText(Integer.toString(draw.label[index].getHeight()));
 		value.statusW.setText(Integer.toString(draw.label[index].getWidth()));
-		value.statusColor.setText(Integer.toHexString((draw.label[index].getBackground().getRGB())));
+		value.statusColor.setText(draw.color[index]);
 		value.statusText.setText(draw.label[index].getText());
 
 		System.out.println(dragging);
@@ -220,20 +229,20 @@ public class DrawEvent extends MouseAdapter implements MouseListener {
 
 		if (enter) {
 
-			if (e.getX() < 3 && e.getY() < 3) {
+			if (e.getX() < 4 && e.getY() < 4) {
 				draw.setCursor(Cursor.getPredefinedCursor(Cursor.NW_RESIZE_CURSOR));
 			} else if (e.getX() != 0 && e.getY() < 3) {
 				draw.setCursor(Cursor.getPredefinedCursor(Cursor.N_RESIZE_CURSOR));
-			} else if (e.getX() > draw.label[index].getWidth() - 3 && e.getY() < 3) {
+			} else if (e.getX() > draw.label[index].getWidth() - 4 && e.getY() < 4) {
 				draw.setCursor(Cursor.getPredefinedCursor(Cursor.NE_RESIZE_CURSOR));
 			} else if (e.getX() > draw.label[index].getWidth() - 3 && e.getY() > 3
 					&& e.getY() < draw.label[index].getHeight() - 3) {
 				draw.setCursor(Cursor.getPredefinedCursor(Cursor.E_RESIZE_CURSOR));
-			} else if (e.getY() > draw.label[index].getHeight() - 3 && e.getX() > draw.label[index].getWidth() - 3) {
+			} else if (e.getY() > draw.label[index].getHeight() - 4 && e.getX() > draw.label[index].getWidth() - 4) {
 				draw.setCursor(Cursor.getPredefinedCursor(Cursor.SE_RESIZE_CURSOR));
 			} else if (e.getX() != 0 && e.getY() > draw.label[index].getHeight() - 3) {
 				draw.setCursor(Cursor.getPredefinedCursor(Cursor.S_RESIZE_CURSOR));
-			} else if (e.getX() < 3 && e.getY() > draw.label[index].getHeight() - 3) {
+			} else if (e.getX() < 4 && e.getY() > draw.label[index].getHeight() - 4) {
 				draw.setCursor(Cursor.getPredefinedCursor(Cursor.SW_RESIZE_CURSOR));
 			} else if (e.getX() < 3 && e.getY() != 0) {
 				draw.setCursor(Cursor.getPredefinedCursor(Cursor.W_RESIZE_CURSOR));

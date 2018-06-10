@@ -16,8 +16,8 @@ public class JMain extends JFrame{
 	CenterPane center = new CenterPane(right,value);
 	DrawPane draw = new DrawPane(right,value,center);
 	DrawNode node = new DrawNode(draw);
-	Menu menu = new Menu(left,this);
-	Toolbar toolbar = new Toolbar(left,this);
+	Menu menu = new Menu(left,this,draw,value);
+	Toolbar toolbar = new Toolbar(left,this,draw,value);
 
 	
 	JMain(){

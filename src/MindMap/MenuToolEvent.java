@@ -1,37 +1,89 @@
 package MindMap;
 
+import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.FileDialog;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 
-public class MenuToolEvent implements ActionListener {
+public class MenuToolEvent extends MouseAdapter implements ActionListener {
 	static int flag = 0;
 	static String content = "";
 	FileDialog mSave;
 	FileDialog mOpen;
 	LeftPane text;
-	
-	
 	Attribute set;
+	
+	DrawPane draw;
 	
 	
 	JMain mind;
-
-	MenuToolEvent(LeftPane item1, JMain item2) {
+	boolean dragging = false;
+	boolean select = false;
+	boolean enter = false;
+	int x,y,index;
+	
+	
+	MenuToolEvent(LeftPane item1, JMain item2,DrawPane item3,Attribute item4) {
 		text = item1;
 		mind = item2;
-//		set = item3;
+		draw = item3;
+		set = item4;
 		mSave = new FileDialog(mind, "저장", FileDialog.SAVE);
 		mOpen = new FileDialog(mind, "열기", FileDialog.LOAD);
 	}
+	public void mousePressed(MouseEvent e) {
+
+		x = e.getX();
+		y = e.getY();
+
+		for (int i = 0; i < draw.label.length; i++) {
+			if (draw.label[i] == e.getSource()) {
+				index = i;
+				// select = true;
+				break;
+			}
+		}
+		if (draw.label[index] == e.getSource())
+			select = true;
+		else {
+			select = false;
+		}
+
+		if (draw.getCursor() != Cursor.getDefaultCursor()) { // draw.getCursor()
+			// If cursor is set for Test, allow dragging.
+			dragging = true;
+		}
+		System.out.println(draw.getCursor());
+	}
+	public void mouseReleased(MouseEvent e) {
+		dragging = false;
+	}
+	public void mouseClicked(MouseEvent e) {
+		// int index = 0;
+
+		for (int i = 0; i < draw.label.length; i++) {
+			if (draw.label[i] == e.getSource()) {
+				index = i;
+				break;
+			}
+			System.out.println("Button >> "+draw.label[index].getText());
+		}
+	}
+	int IndexOfLabel(int i){
+		return i;
+	}
 
 	public void actionPerformed(ActionEvent e) {
-
+//		int index;
 		String data;
+		
 		String cmd = e.getActionCommand(); // 사용자가 선택한 메뉴아이템의 문자열 리턴.
 		System.out.println(cmd);
 		switch (cmd) { // 메뉴 아이템의 종류 구분
@@ -153,13 +205,19 @@ public class MenuToolEvent implements ActionListener {
 			// imgLabel.setVisible(true);
 			break;
 		case "변경":
-//			set.statusText.setText(set.statusText.getText());
-//			set.statusX.setText(set.statusX.getText());
-//			set.statusX.getText();
-//			set.statusY.setText(set.statusY.getText());
-//			set.statusH.setText(set.statusH.getText());
-//			set.statusW.setText(set.statusW.getText());
-//			set.statusColor.setText(set.statusColor.getText());
+////			int index = 0;
+//			for (int i = 0; i < draw.label.length; i++) {
+//				if (draw.label[i] == e.getSource()) {
+//					System.out.println(draw.label[i].getText());
+//					index = i;
+//					break;
+//				}
+//			}
+			System.out.println(draw.label[index].getText());
+//			draw.color[index] = set.statusColor.getText();
+//			draw.label[index].setBackground(Color.decode(draw.color[index]));
+//			System.out.println(draw.label[index].getText());
+//			draw.label[index].setBackground(Color.decode(set.statusColor.getText()));
 			break;
 		}
 	}
